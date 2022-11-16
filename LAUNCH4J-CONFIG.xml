@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <launch4jConfig>
   <dontWrapJar>false</dontWrapJar>
-  <headerType>gui</headerType>
+  <headerType>console</headerType>
   <jar>C:\Users\Julian Herbert\Downloads\rmap.jar</jar>
   <outfile>C:\Users\Julian Herbert\Documents\L4JOUT\rmap1.0.0.exe</outfile>
   <errTitle>RMAP Error</errTitle>
