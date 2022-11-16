@@ -9,13 +9,43 @@ import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 import java.util.Random;
+import java.text.DecimalFormat;
 public class main {
-    public static float flip(float num) {
-        return 1 - num;
+    public static float flip(float n) {
+        return 1 - n;
     }
     public static void main(String[] args) {
-        int width = Integer.parseInt(args[0]);
-        int height = Integer.parseInt(args[1]);
+        long start = System.currentTimeMillis();
+        int width = 25;
+        int height = 25;
+        if (args.length == 0) {
+            System.out.println("Insufficient number of arguments provided. Run \"help\" to see documentation.");
+            System.exit(1);
+        }
+        String lc = args[0].toLowerCase();
+        if (lc.equals("help")) {
+            try {
+                Runtime.getRuntime().exec("write.exe Documentation.rtf");
+            } catch (IOException e) {
+                System.out.println("Could not open help file.");
+            }
+            System.exit(0);
+        } else if (lc.equals("hd") || lc.equals("720p")) {
+            width = 1280;
+            height = 720;
+        } else if (lc.equals("fhd") || lc.equals("1080p")) {
+            width = 1920;
+            height = 1080;
+        } else if (lc.equals("qhd") || lc.equals("1440p")) {
+            width = 2560;
+            height = 1440;
+        } else if (lc.equals("uhd") || lc.equals("4k") || lc.equals("2160p")) {
+            width = 3840;
+            height = 2160;
+        } else {
+            width = Integer.parseInt(args[0]);
+            height = Integer.parseInt(args[1]);
+        }
         BufferedImage img = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
         String filename = "generated";
         String type = "png";
@@ -74,11 +104,15 @@ public class main {
             fliprow = flip(fliprow);
         }
         System.out.println("\nWriting to " + System.getProperty("user.dir") + File.separator + full);
+        float diff = System.currentTimeMillis() - start;
+        DecimalFormat formatter = new DecimalFormat("##.00");
         try {
             File out = new File(full);
             ImageIO.write(img, type, out);
         } catch (IOException e) {
             System.out.println(e);
         }
+        float mins = (diff / 60000);
+        System.out.println("Generated in " + formatter.format(diff / 1000) + "s (" + formatter.format(mins) + "min)");
     }
 }

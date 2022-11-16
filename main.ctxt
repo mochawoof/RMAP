@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=main
-comment1.params=num
+comment1.params=n
 comment1.target=float\ flip(float)
 comment2.params=args
 comment2.target=void\ main(java.lang.String[])
