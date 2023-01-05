@@ -11,7 +11,7 @@ import javax.imageio.ImageIO;
 import java.util.Random;
 import java.text.DecimalFormat;
 public class main {
-    public static float flip(float n) {
+    private static float flip(float n) {
         return 1 - n;
     }
     public static void main(String[] args) {
