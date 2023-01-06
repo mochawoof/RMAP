@@ -71,7 +71,7 @@ public class main {
         for (int i=0; i < height; i++) {
             flipcol = 0;
             for (int z=0; z < width; z++) {
-                if (mode == "random") {
+                if (mode.equals("random")) {
                     img.setRGB(z, i, new Color(rand.nextFloat(), rand.nextFloat(), rand.nextFloat()).getRGB());
                 } else if (mode.equals("color")) {
                     img.setRGB(z, i, new Color((float)z / width, (float)i / height, 1).getRGB());
@@ -103,11 +103,12 @@ public class main {
             }
             fliprow = flip(fliprow);
         }
-        System.out.println("\nWriting to " + System.getProperty("user.dir") + File.separator + full);
+        String abs = new File(full).getAbsolutePath();
+        System.out.println("\nWriting to " + abs);
         float diff = System.currentTimeMillis() - start;
         DecimalFormat formatter = new DecimalFormat("##.00");
         try {
-            File out = new File(full);
+            File out = new File(abs);
             ImageIO.write(img, type, out);
         } catch (IOException e) {
             System.out.println(e);
