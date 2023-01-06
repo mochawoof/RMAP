@@ -67,6 +67,7 @@ public class main {
         Random rand = new Random();
         float flipcol = 0;
         float fliprow = 0;
+        int last = 0;
         System.out.println("Generating...");
         for (int i=0; i < height; i++) {
             flipcol = 0;
@@ -96,7 +97,10 @@ public class main {
                 float percent = ((iterations / (width * height)) * 100);
                 String progress = "\r" + (int)percent + "%";
                 try {
-                    System.out.write(progress.getBytes());
+                    if ((int)percent != last) {
+                        System.out.write(progress.getBytes());
+                        last = (int)percent;
+                    }
                 } catch (IOException e) {
                     System.out.println(e);
                 }
