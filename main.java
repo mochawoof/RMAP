@@ -109,7 +109,6 @@ public class main {
         }
         String abs = new File(full).getAbsolutePath();
         System.out.println("\nWriting to " + abs);
-        float diff = System.currentTimeMillis() - start;
         DecimalFormat formatter = new DecimalFormat("##.00");
         try {
             File out = new File(abs);
@@ -117,6 +116,7 @@ public class main {
         } catch (IOException e) {
             System.out.println(e);
         }
+        float diff = System.currentTimeMillis() - start;
         float mins = (diff / 60000);
         System.out.println("Generated in " + formatter.format(diff / 1000) + "s (" + formatter.format(mins) + "min)");
     }
