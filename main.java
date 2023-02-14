@@ -10,6 +10,7 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import java.util.Random;
 import java.text.DecimalFormat;
+import java.security.SecureRandom;
 public class main {
     private static float flip(float n) {
         return 1 - n;
@@ -65,6 +66,7 @@ public class main {
         }
         String full = pathset + filename + "." + type;
         Random rand = new Random();
+        SecureRandom srand = new SecureRandom();
         float flipcol = 0;
         float fliprow = 0;
         int last = 0;
@@ -89,6 +91,11 @@ public class main {
                     }
                     img.setRGB(z, i, new Color(flipnow, flipnow, flipnow).getRGB());
                     flipcol = flip(flipcol);
+                } else if (mode.equals("s-random")) {
+                    img.setRGB(z, i, new Color(srand.nextFloat(), srand.nextFloat(), srand.nextFloat()).getRGB());
+                } else if (mode.equals("s-static")) {
+                    float f = srand.nextFloat();
+                    img.setRGB(z, i, new Color(f, f, f).getRGB());
                 } else {
                     System.out.println("Invalid mode specification \"" + mode + "\", exiting.");
                     System.exit(1);
