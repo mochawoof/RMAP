@@ -2,14 +2,14 @@
 <launch4jConfig>
   <dontWrapJar>false</dontWrapJar>
   <headerType>console</headerType>
-  <jar>C:\Users\Julian Herbert\Downloads\rmap.jar</jar>
-  <outfile>C:\Users\Julian Herbert\Documents\L4JOUT\rmap1.0.0.exe</outfile>
+  <jar>C:\Users\mocha\Downloads\rmap.jar</jar>
+  <outfile>C:\Users\mocha\Documents\L4JOUT\rmap1.0.0.exe</outfile>
   <errTitle>RMAP Error</errTitle>
   <cmdLine></cmdLine>
   <chdir>.</chdir>
   <priority>normal</priority>
   <downloadUrl></downloadUrl>
-  <supportUrl>https://github.com/jweled/RMAP/issues</supportUrl>
+  <supportUrl>https://github.com/mochawoof/RMAP/issues</supportUrl>
   <stayAlive>false</stayAlive>
   <restartOnCrash>false</restartOnCrash>
   <manifest></manifest>
